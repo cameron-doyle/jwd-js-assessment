@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			.addEventListener('click', () => location.reload())
 
 		//Start timer
-		startTimer(2)
+		startTimer(90)
 	});
 	// quizArray QUESTIONS & ANSWERS
 	// q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
