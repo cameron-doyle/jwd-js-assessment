@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			.addEventListener('click', () => location.reload())
 
 		//Start timer
-		startTimer(90)
+		startTimer(2)
 	});
 	// quizArray QUESTIONS & ANSWERS
 	// q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
@@ -92,19 +92,26 @@ window.addEventListener('DOMContentLoaded', () => {
 		updateTime(time);
 
 		//Loop each second, remove 1 second from the time and format the time correctly
-		while(time > 0 && runTimer){
+		//while(time > 0 && runTimer){
 			//Wait 1s
-			await new Promise(r => setTimeout(r, 1000));
-
+			//await new Promise(r => setTimeout(r, 1000));
+			const timer = setInterval(() => {
+				time--;
+				updateTime(time);
+				if(time <= 0 || !runTimer){
+					calculateScore();
+					clearInterval(timer);
+				}
+					
+			}, 1000)
 			//Decrement time
-			time--;
+			
 
 			//Format and update time
-			updateTime(time);
+			
 
 
-		}
-		calculateScore();
+		//}
 	};
 
 	//Updates the timer display
